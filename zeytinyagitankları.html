@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        p#productDescription {
+            margin-left: 15px;
+        }
+        card-img, .card-img-top {
+          border-top-left-radius: var(--bs-card-inner-border-radius);
+           border-top-right-radius: var(--bs-card-inner-border-radius);
+            height: 340px;
+            margin: auto;
+           width: fit-content;
+}
+  
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin: auto;
+        }
+        .btn-details {
+            background: #28a745;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .btn-details:hover {
+            background: #218838;
+        }
+        /* Modal içindeki resim */
+        .modal-content img {
+            max-width: 90%;
+            height: 500px;
+            object-fit: contain;
+            margin: auto;
+        }
+        /* Mobil Uyumlu Tasarım */
+    @media (max-width: 768px) 
+    { 
+        .modal-content img {
+            max-width: 100%;
+            height: 300px;
+            object-fit: contain;
+            margin: auto;
+           
+            
+        }
+        card-img, .card-img-top
+        {
+          
+        }
+        
+    }
+        .product-features {
+            list-style: none;
+            padding: 0;
+        }
+        .product-features li {
+            background: #f8f9fa;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .card-body
+        {
+           height:  170px;
+        }
+        h2.text-center {
+    background-color: #d9e2d6; /* Yumuşak pastel yeşil arka plan */
+    color: #333; /* Koyu gri metin rengi */
+    padding: 15px 0;
+    font-size: 40px; 
+    font-family: 'Arial', sans-serif; 
+    text-align: center;
+    border-radius: 8px; 
+    margin-top: -5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 40px;
+   
+}
+
+             
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Logo" style="height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zeytinyagitankları.html">Ürünler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkımızda.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <h2 class="text-center">Ürünlerimiz</h2>
+    <div class="row" id="product-list"></div>
+</div>
+
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="position: relative;">
+                    <div class="carousel-inner" id="productImages"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" 
+                        style="background-color: rgba(0, 128, 0, 0.6); border-radius: 5px; width: 40px; height: 40px; 
+                               display: flex; align-items: center; justify-content: center; 
+                               position: absolute; top: 50%; left: 10px; transform: translateY(-50%);">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" 
+                        style="background-color: rgba(0, 128, 0, 0.6); border-radius: 5px; width: 40px; height: 40px; 
+                               display: flex; align-items: center; justify-content: center; 
+                               position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+            
+            
+                <p id="productDescription" class="mt-3"></p>
+                <ul id="productFeatures" class="product-features"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- WhatsApp Butonu -->
+<a href="https://wa.me/905550000000" class="whatsapp-button" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="whatsapp-text">Bizimle İletişime Geçin</span>
+</a>
+
+
+<script>
+ const products = [
+    {
+        id: 1,
+        name: "50 Litre Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/50litre-zeytinyagi-tanki-6.png","img/50litre-zeytinyagi-tanki-1.png","img/50litre-zeytinyagi-tanki.png", "img/50litre-zeytinyagi-tanki-2.png", "img/50litre-zeytinyagi-tanki-3.png", "img/50litre-zeytinyagi-tanki-4.png" , "img/50litre-zeytinyagi-tanki-5.png", "img/50litre-zeytinyagi-tanki-7.png"],
+        features: ["50 litre kapasite", "Paslanmaz çelik", "304 krom vana","Konik taban","Tahliye vanası","38 cm çap","40 cm uzunluk","sehpa boyu 40 cm"]
+    },
+    {
+        id: 2,
+        name: "100 Litre Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/100litre-zeytinyagi-tanki.png", "img/100litre-zeytinyagi-tanki-2.png", "img/100litre-zeytinyagi-tanki-3.png", "img/304krommusluk.png"],
+        features: ["100 litre kapasite", "Paslanmaz çelik", "304 krom vana","Konik taban","Tahliye vanası","45 cm çap","65 cm uzunluk","sehpa boyu 40 cm"]
+    },
+    {
+        id: 3,
+        name: "200 Litre Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/200litre-zeytinyagi-tanki.png", "img/200litre-zeytinyagi-tanki-1.png", "img/200litre-zeytinyagi-tanki-3.png"],
+        features: ["200 litre kapasite", "Paslanmaz çelik", "304 krom vana","Konik taban","Tahliye vanası","65 cm çap","65 cm uzunluk","sehpa boyu 40 cm"]
+    },
+    {
+        id: 4,
+        name: "300 Litre Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/300litre-zeytinyagi-tanki.png", "img/300litre-zeytinyagi-tanki-1.png", "img/300litre-zeytinyagi-tanki-2.png", "img/300litre-zeytinyagi-tanki-3.png", "img/304kalitepaslanmazzeytinyağıtankı300litre_alt.png"  ],
+        features: ["300 litre kapasite", "Paslanmaz çelik", "304 krom vana","Konik taban","Tahliye vanası","65 cm çap","100 cm uzunluk","sehpa boyu 40 cm"]
+    },
+    {
+        id: 5,
+        name: "460 Litre Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/460litre-zeytinyagi-tanki-1.png", "img/460litre-zeytinyagi-tanki-2.png"],
+        features: ["100 litre kapasite", "Paslanmaz çelik", "304 krom vana", "Konik taban","Tahliye vanası","Gösterge paneli","65 cm çap","150 cm uzunluk","sehpa boyu 40 cm"]
+    },
+    {
+        id: 6,
+        name: "580 litre Yatık Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/580litre-zeytinyagi-tanki.png",  "img/580litre-zeytinyagi-tanki-2.png", "img/580litre-zeytinyagi-tanki-3.png", "img/580litre-zeytinyagi-tanki-4.png"],
+        features: ["100 litre kapasite", "Paslanmaz çelik", "304 krom vana","Konik taban","Tahliye vanası","Gösterge paneli","Yatık model","80 cm çap","120 cm uzunluk"," sehpa ile birlikte yerden yüksekliği 120 cm "]
+    },
+    {
+        id: 7,
+        name: "1 Ton Zeytinyağı Tankı",
+        description: "304 Kalite Paslanmaz Zeytinyağı Tankı.",
+        images: ["img/1ton-zeytinyagi-tanki.png"],
+        features: ["100 litre kapasite", "Paslanmaz çelik", "304 krom vana","Konik taban","Tahliye vanası","Gösterge paneli","92 cm çap","150 cm uzunluk",]
+    }
+];
+
+const productList = document.getElementById('product-list');
+productList.innerHTML = products.map(product => `
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="${product.images[0]}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text">${product.description}</p>
+                <button class="btn btn-primary" onclick="showProduct(${product.id})">Detaylar</button>
+            </div>
+        </div>
+    </div>
+`).join('');
+
+function showProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    document.getElementById('productTitle').textContent = product.name;
+    document.getElementById('productDescription').textContent = product.description;
+    
+    const imagesContainer = document.getElementById('productImages');
+    imagesContainer.innerHTML = product.images.map((img, index) => `
+        <div class="carousel-item ${index === 0 ? 'active' : ''}">
+            <img src="${img}" class="d-block w-100" alt="${product.name}">
+        </div>
+    `).join('');
+
+    const featuresContainer = document.getElementById('productFeatures');
+    featuresContainer.innerHTML = product.features.map(feature => `<li>${feature}</li>`).join('');
+
+    new bootstrap.Modal(document.getElementById('productModal')).show();
+}
+ </script>
+    <footer class="text-center p-3 bg-dark text-white mt-4">
+        <p>&copy; 2024 Şirket Adı. Tüm Hakları Saklıdır.</p>
+    </footer>
+</body>
+</html>

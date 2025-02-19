@@ -1,0 +1,470 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.container {
+  flex: 1;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  
+  bottom: 0;
+  width: 100%;
+}
+
+/* 304 kalite paslanmaz çelik bölümü */
+/* Genel Stil Ayarları */
+#quality {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Başlık Stil Ayarları */
+.section-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  color: #28a745;
+}
+
+/* Paragraf Stili */
+#quality p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* Liste Stil Ayarları */
+.quality-list {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quality-list li {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 10px 30px;
+  position: relative;
+  padding-left: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.quality-list li:hover {
+  transform: translateX(5px);
+}
+
+.quality-list li strong {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.quality-list li i {
+  color: #28a745;
+  margin-right: 10px;
+  font-size: 1.3rem;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+/* Görsel Stili */
+.quality-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.quality-image:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 767px) {
+  #quality .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  #quality p {
+    font-size: 1rem;
+  }
+
+  .quality-list li {
+    margin: 15px 0;
+  }
+
+  .quality-image {
+    max-width: 80%;
+  }
+}
+
+
+
+/* Ürünler Kısmı */
+#products {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+#products .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#products .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+#products .product-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+#products .product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+#products .product-info {
+  padding: 20px;
+}
+
+#products .product-title {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+#products .product-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+#products .product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Genel Button Stili */
+.btn {
+  background-color: #527044;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+
+/* SSS Bölümü */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* SSS Bölümü */
+#faq {
+    padding: 60px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#faq h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 12px;
+    background-color: #f1f1f1;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color:  #527044;
+    color: white;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: #333;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+/* Açıldığında ok simgesinin dönüşü */
+.faq-item.open .faq-icon {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    display: none;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Açılan Soruyu Gösterme */
+.faq-item.open .faq-answer {
+    display: block;
+}
+/*slide*/
+.carousel-item {
+  height: 500px; /* Masaüstü İçin */
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Resmin tamamını doldurur */
+  filter: brightness(95%); /* Hafif koyulaştırma efekti */
+}
+
+/* Yazıları Daha Okunaklı Hale Getir */
+.carousel-caption {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5); /* Yarı saydam arka plan */
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+
+.carousel-caption h5 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+  color: #ddd;
+}
+
+/* Buton Tasarımı */
+.custom-carousel-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.custom-carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Nokta Navigasyonu Renkleri */
+.carousel-indicators button {
+  background-color: #ff6600; /* Turuncu Renk */
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.carousel-indicators .active {
+  background-color: #228B22; /* Yeşil Renk */
+}
+
+/* Mobil Uyumlu Tasarım */
+@media (max-width: 768px) {
+  .carousel-item {
+      height: 300px; /* Mobil İçin Küçült */
+  }
+  
+  .carousel-caption {
+      bottom: 10%;
+      padding: 10px 15px;
+      width: 90%;
+  }
+  
+  .carousel-caption h5 {
+      font-size: 18px;
+  }
+
+  .carousel-caption p {
+      font-size: 14px;
+  }
+  .carousel-item img {
+    object-fit: contain;
+  }
+}
+
+ /* WhatsApp Butonu */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #25d366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* WhatsApp İkonu */
+.whatsapp-button i {
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+/* Hover Efekti */
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobilde sadece ikon görünecek, yazı kaybolacak */
+@media (max-width: 768px) {
+  .whatsapp-text {
+      display: none;
+  }
+  
+  .whatsapp-button {
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      justify-content: center;
+  }
+  .whatsapp-button i
+  {
+    margin-right: 0;
+  }
+
+ 
+}
+
+ 
+/* Satış Noktaları Bölümü */
+#sales-points {
+  background-color: white;
+  color: black;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.sales-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Kutu Stili */
+.sales-box {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background: #f8f8f8;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 📌 Tablet için */
+@media (max-width: 992px) {
+  .sales-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .sales-box {
+    padding: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
+
+/* 📌 Mobil için */
+@media (max-width: 576px) {
+  .sales-container {
+      grid-template-columns: repeat(1, 1fr);
+  }
+  .sales-box {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
